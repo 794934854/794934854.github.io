@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>金泽广 | JIN ZEGUANG - 产品设计师作品集</title>
+    <style>
+        /* --- 核心变量 (Bauhaus Palette) --- */
+        :root {
+            --bg-color: #f4f4f0;
+            --text-color: #111111;
+            --bauhaus-red: #D90429;
+            --bauhaus-blue: #00509E;
+            --bauhaus-yellow: #FFD60A;
+            --border-thick: 8px solid #111111;
+            --border-thin: 2px solid #111111;
+            --font-main: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        /* --- 基础设定 --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-main); background-color: var(--bg-color); color: var(--text-color); line-height: 1.5; }
+        
+        /* --- 通用组件 --- */
+        .section-header { border-bottom: var(--border-thick); padding-bottom: 20px; margin-bottom: 40px; grid-column: span 2; }
+        .section-header h2 { font-size: clamp(2rem, 5vw, 4rem); text-transform: uppercase; font-weight: 900; }
+        
+        .logo-box { width: 140px; height: 140px; border: var(--border-thin); margin-bottom: 25px; background: #fff; display: flex; align-items: center; justify-content: center; padding: 10px; }
+        .logo-box img { max-width: 100%; max-height: 100%; object-fit: contain; }
+
+        .course-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; margin-top: 20px; }
+        .course-tag { background: #fff; border: 1px solid var(--text-color); padding: 5px 12px; font-size: 0.85rem; font-weight: bold; text-align: center; }
+
+        .btn { display: inline-block; padding: 15px 35px; text-decoration: none; font-weight: bold; text-transform: uppercase; transition: 0.3s; border: var(--border-thin); margin-top: 20px; }
+        
+        /* --- 1. 欢迎屏 (Hero) --- */
+        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 5vw; border-bottom: var(--border-thick); position: relative; }
+        .hero h1 { font-size: clamp(4rem, 12vw, 10rem); font-weight: 900; line-height: 0.9; text-transform: uppercase; }
+        .hero h1 span { color: var(--bauhaus-red); }
+        .hero p { font-size: 1.5rem; margin: 2rem 0; border-left: 10px solid var(--bauhaus-yellow); padding-left: 20px; letter-spacing: 2px; }
+        .hero .enter-btn { background: var(--text-color); color: var(--bg-color); align-self: flex-start; }
+        .hero .enter-btn:hover { background: var(--bauhaus-blue); transform: translate(8px, -8px); box-shadow: -8px 8px 0 var(--text-color); }
+
+        /* --- 2. 互动网格 (Zones) --- */
+        .zones-container { display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; background: var(--text-color); gap: 8px; border-bottom: var(--border-thick); }
+        .zone-card { background: var(--bg-color); padding: 4vw; display: flex; flex-direction: column; text-decoration: none; color: inherit; transition: 0.4s; }
+        .zone-card h2 { font-size: 2.5rem; font-weight: 900; margin-bottom: 1rem; border-bottom: var(--border-thin); display: inline-block; padding-bottom: 5px; }
+        .zone-card:hover { background: var(--bauhaus-red); color: white; }
+        .zone-card:hover h2 { border-color: white; }
+
+        /* --- 3. 详情板块通用布局 --- */
+        .detail-section { min-height: 100vh; padding: 6vw 5vw; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; border-bottom: var(--border-thick); background: #fff; }
+        .detail-left { border-right: var(--border-thin); padding-right: 40px; }
+        .year-label { font-size: 5rem; font-weight: 900; color: var(--bauhaus-red); line-height: 1; margin-bottom: 10px; }
+        .school-name { font-size: 2.5rem; font-weight: 800; margin-bottom: 10px; }
+        
+        .stat-group { display: flex; gap: 15px; margin: 30px 0; }
+        .stat-item { background: var(--text-color); color: white; padding: 20px; flex: 1; }
+        .stat-val { font-size: 2.5rem; font-weight: 900; color: var(--bauhaus-yellow); line-height: 1; }
+        .stat-desc { font-size: 0.75rem; text-transform: uppercase; margin-top: 5px; }
+
+        /* --- 4. 响应式适配 --- */
+        @media (max-width: 850px) {
+            .zones-container, .detail-section { grid-template-columns: 1fr; }
+            .detail-left { border-right: none; border-bottom: var(--border-thin); padding-bottom: 40px; }
+            .hero h1 { font-size: 4.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <h1>金泽广<span>.</span><br>JIN<br>ZEGUANG</h1>
+        <p>产品设计师 / 形式追随功能</p>
+        <a href="#zones" class="btn enter-btn">Enter 探索</a>
+    </header>
+
+    <section id="zones" class="zones-container">
+        <a href="#edu-1" class="zone-card" style="border-top: 20px solid var(--bauhaus-red);">
+            <h2>教育背景 / EDU</h2>
+            <p>2020-2025 | 工业设计专业<br>从深信大到广科院的学术进阶</p>
+        </a>
+        <a href="#exp-detail" class="zone-card" style="border-top: 20px solid var(--bauhaus-blue);">
+            <h2>工作经历 / EXP</h2>
+            <p>博思纵横 | ID设计师<br>70% 方案采纳率与核心项目落地</p>
+        </a>
+        <div class="zone-card" style="border-top: 20px solid var(--bauhaus-yellow);">
+            <h2>工作项目 / PROJ</h2>
+            <p>即将上线：精选产品设计案例库</p>
+        </div>
+        <div class="zone-card" style="border-top: 20px solid #666;">
+            <h2>生活爱好 / LIFE</h2>
+            <p>设计之外的审美探索与日常观察</p>
+        </div>
+    </section>
+
+    <section id="edu-1" class="detail-section">
+        <div class="section-header"><h2>Education Phase I</h2></div>
+        <div class="detail-left">
+            <div class="logo-box">
+                <img src="logo_sziit.png" alt="深圳信息职业技术大学 Logo">
+            </div>
+            <div class="year-label">2020-23</div>
+            <div class="school-name">深圳信息职业技术大学</div>
+            <p style="letter-spacing: 2px; font-weight: bold;">主修：工业设计</p>
+            <div class="stat-group">
+                <div class="stat-item">
+                    <div class="stat-val">TOP 20</div>
+                    <div class="stat-desc">全系成绩排名 / 3年蝉联</div>
+                </div>
+            </div>
+        </div>
+        <div class="detail-right">
+            <div style="background: var(--bauhaus-red); color: white; padding: 8px 20px; display: inline-block; font-weight: bold; margin-bottom: 25px;">学习委员 / Academic Representative</div>
+            <h3>主修课程 / CORE COURSES:</h3>
+            <div class="course-grid">
+                <div class="course-tag">智能家居设计</div>
+                <div class="course-tag">产品手绘表现</div>
+                <div class="course-tag">产品建模渲染</div>
+                <div class="course-tag">交互设计</div>
+                <div class="course-tag">产品设计表现</div>
+            </div>
+            <p style="margin-top: 30px; font-size: 1.1rem;">在三年的学习中保持了极高的学术水准，并作为班委负责学术事务的组织与协调。</p>
+            <a href="#edu-2" class="btn" style="background: var(--bauhaus-blue); color: white; border-color: var(--text-color);">NEXT: 广东科技学院 →</a>
+        </div>
+    </section>
+
+    <section id="edu-2" class="detail-section" style="background-color: var(--bg-color);">
+        <div class="section-header"><h2>Education Phase II</h2></div>
+        <div class="detail-left">
+            <div class="logo-box">
+                <img src="logo_gkit.png.png" alt="广东科技学院 Logo">
+            </div>
+            <div class="year-label">2023-25</div>
+            <div class="school-name">广东科技学院</div>
+            <p style="letter-spacing: 2px; font-weight: bold;">主修：工业设计 (本科阶段)</p>
+            <div class="stat-group">
+                <div class="stat-item" style="background: var(--bauhaus-blue);">
+                    <div class="stat-val">ADVANCED</div>
+                    <div class="stat-desc">专业能力深化与创新研究</div>
+                </div>
+            </div>
+        </div>
+        <div class="detail-right">
+            <div style="background: var(--bauhaus-yellow); color: #000; padding: 8px 20px; display: inline-block; font-weight: bold; margin-bottom: 25px;">本科深造 / Undergraduate Study</div>
+            <h3>主修课程 / CORE COURSES:</h3>
+            <div class="course-grid">
+                <div class="course-tag">文创产品设计</div>
+                <div class="course-tag">智能家居设计</div>
+                <div class="course-tag">产品手绘表现</div>
+                <div class="course-tag">创意家具设计</div>
+            </div>
+            <p style="margin-top: 30px; font-size: 1.1rem;">侧重于将文化创意与智能家居结合，探索家具设计的创新形态与结构表现。</p>
+            <a href="#zones" class="btn" style="background: var(--text-color); color: white;">返回板块首页 ↑</a>
+        </div>
+    </section>
+
+    <section id="exp-detail" class="detail-section">
+        <div class="section-header"><h2>Professional Record</h2></div>
+        <div class="detail-left" style="border-right: var(--border-thick);">
+            <div class="year-label" style="color: var(--bauhaus-blue);">2025.06-09</div>
+            <div class="school-name">深圳市博思纵横设计有限公司</div>
+            <p style="letter-spacing: 2px; font-weight: bold; color: var(--bauhaus-blue);">ID设计师 / ID DESIGNER</p>
+            
+            <div class="stat-group" style="flex-direction: column;">
+                <div class="stat-item" style="background: var(--bauhaus-blue);">
+                    <div class="stat-val">70%</div>
+                    <div class="stat-desc">核心方案采纳率</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-val">-12%</div>
+                    <div class="stat-desc">单款开模成本降低 (约2.3万元)</div>
+                </div>
+            </div>
+        </div>
+        <div class="detail-right">
+            <div style="margin-bottom: 30px;">
+                <h4 style="border-left: 5px solid var(--bauhaus-red); padding-left: 10px; margin-bottom: 10px;">产出与交付 / OUTPUT</h4>
+                <p>输出了 **600版** 概念草图与 **10套** 高精度3D模型。通过CMF介入，实现了产品量产落地的成本优化。</p>
+            </div>
+            <div style="margin-bottom: 30px;">
+                <h4 style="border-left: 5px solid var(--bauhaus-yellow); padding-left: 10px; margin-bottom: 10px;">调研与转化 / INSIGHT</h4>
+                <p>主导 **300+** 样本用户调研，提炼 **15项** 核心需求。助力产品上市首月销量突破 **1500台**。</p>
+            </div>
+            <div>
+                <h4 style="border-left: 5px solid var(--bauhaus-blue); padding-left: 10px; margin-bottom: 10px;">效率优化 / EFFICIENCY</h4>
+                <p>建立标准化设计文档库，将产品开发周期压缩 **18%**，设计迭代效率提升 **25%**。</p>
+            </div>
+            <a href="#zones" class="btn" style="background: var(--text-color); color: white;">返回板块首页 ↑</a>
+        </div>
+    </section>
+
+</body>
+</html>
